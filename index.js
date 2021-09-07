@@ -35,7 +35,12 @@ Do the following:
 
    HINT: no function required
 */
-
+let num= 1
+const num2= 2
+if (num2 === 2) {
+  num = num + num2
+}
+console.log(num)
 
 
 
@@ -50,8 +55,9 @@ Do the following:
 
    HINT: look up the Number method
 */
-
-
+const string = '1999'
+Number("1999")
+console.log(string)
 
 
 /*
@@ -63,9 +69,10 @@ Do the following:
    3. Multiply a and b and return the answer
 */
 
-function multiply(/*add your code here*/){
-  /*add your code here*/
+function multiply(a, b){
+  return a * b
 }
+console.log(multiply(3, 5))
 
 
 
@@ -79,9 +86,10 @@ Do the following:
  3. Return the newly calculated age
 */
 
-function dogYears(/*add your code here*/){
-  /*add your code here*/
+function dogYears(age){
+ return age * 7
 }
+console.log(dogYears(4))
 
 
 
@@ -112,10 +120,19 @@ Puppies less than 1 year
 NOTE: If done correctly, a weight of 15 lbs and age of 1 year would return 0.44999999999999996
 */  
 
-function hungryDog(/*add your code here*/){
-  /*add your code here*/
+function hungryDog(age ,weight){
+  if (age >= 1 && weight <= 5) {
+    console.log('Dog food:')
+    return weight * .05;
+  } else if (age < 1) {
+    console.log('Puppy food:')
+    return weight * .1;
+  } else if (age >= 1 && weight <= 15) {
+    console.log('Big dog food:')
+    return weight * .03;
 }
-
+}
+console.log(hungryDog(1,15))
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -138,10 +155,48 @@ RULES OF THE GAME: Scissors beats Paper | Paper beats Rock | Rock beats Scissors
 
 HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
 */
+const computerMath = Math.random()
+
+const computerChoice = (computer) => {
+  let value = ''
+  if (computer <= 0.3) {
+    value = 'scissors'
+  }
+  if (computer > 0.3 && computer < 0.6) {
+    value = 'paper'
+  }
+  if (computer >= 0.6) {
+    value = 'rock'
+  }
+  return value
+}
 
 function game(user, computer){
-  /*add your code here*/
+  const computerValue = computerChoice(computer)
+  if (user === computerValue) {
+    return "it's a tie"
+  }
+  if (user === 'scissors' && computerValue === 'paper') {
+    return 'you win!'
+  }
+  if (user === 'scissors' && computerValue === 'rock') {
+    return 'you lose!'
+  }
+  if (user === 'paper' && computerValue === 'rock') {
+    return 'you win!'
+  }
+    
+  if (user === 'paper' && computerValue ==='scissors') {
+    return 'you lose!'
+  }
+  if (user === 'rock' && computerValue === 'scissors') {
+    return 'you win!'
+  }
+  if (user === 'rock' && computerValue === 'paper') {
+    return 'you lose!'
+  }
 }
+console.log(game('rock', computerMath))
 
 
 
@@ -156,11 +211,13 @@ Using the miles function below do the following:
 3. Return the number of miles
 */
 
-function miles(/*add your code here*/){
-  /*add your code here*/
+function miles(km){
+  return km * 0.62137119
 }
 
 
+ console.log(miles(5))
+ 
 
 //Task 5b - Feet to CM
 /*
@@ -170,10 +227,10 @@ Using the feet function below do the following:
 3. Return number of feet
 */
 
-function feet(/*add your code here*/){
-  /*add your code here*/
+function feet(cm){
+ return cm / 30.48
 }
-
+console.log(feet(200))
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -186,9 +243,17 @@ Using the annoyingSong function below do the following:
     "{number} bottles of soda on the wall, {number} bottles of soda, take one down pass it around {number left over} bottles of soda on the wall"
 */
 
-function annoyingSong(/*add your code here*/){
-      /*add your code here*/
+function annoyingSong(number){
+  let text = ''
+  while (number > 0) {
+    const leftOver = number - 1
+    text += `${number} bottles of soda on the wall, ${number} bottles of soda, take one down pass it around ${leftOver} bottles of soda on the wall`
+    number = leftOver
+  }
+  return text
 }
+console.log(annoyingSong(5))
+
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/

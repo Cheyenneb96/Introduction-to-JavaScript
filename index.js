@@ -120,19 +120,33 @@ Puppies less than 1 year
 NOTE: If done correctly, a weight of 15 lbs and age of 1 year would return 0.44999999999999996
 */  
 
-function hungryDog(age ,weight){
-  if (age >= 1 && weight <= 5) {
-    console.log('Dog food:')
-    return weight * .05;
-  } else if (age < 1) {
-    console.log('Puppy food:')
-    return weight * .1;
-  } else if (age >= 1 && weight <= 15) {
-    console.log('Big dog food:')
-    return weight * .03;
+function hungryDog(weight, age){
+  if (age >= 1) {
+    if (weight <= 5) {
+      return weight * .05
+    }
+    if (weight <= 10 && weight >= 6) {
+      return weight * .04 
+    }
+    if (weight <= 15 && weight >= 11) {
+      return weight * .03
+    }
+    if (weight >= 15 ) {
+      return weight * .02
+    }
+  }
+  if (age >= .16 && age <= .33) {
+    return weight * .1
+  }
+  if (age >= .331 && age <= .58) {
+    return weight * .05
+  }
+  if (age >= .581 && age <= .99) {
+    return weight * .04
+  }
+
 }
-}
-console.log(hungryDog(1,15))
+console.log('Hungry Dog ' + hungryDog(4, 1))
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -172,7 +186,10 @@ const computerChoice = (computer) => {
 }
 
 function game(user, computer){
-  const computerValue = computerChoice(computer)
+  let computerValue = computerChoice(computer)
+  if (typeof computer === 'string') {
+    computerValue = computer
+  }
   if (user === computerValue) {
     return "it's a tie"
   }
@@ -200,6 +217,7 @@ console.log(game('rock', computerMath))
 
 
 
+
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
 //Metric Converter 
@@ -212,11 +230,11 @@ Using the miles function below do the following:
 */
 
 function miles(km){
-  return km * 0.62137119
+  return km * 0.621371
 }
 
 
- console.log(miles(5))
+ console.log('MILES: ' + miles(10))
  
 
 //Task 5b - Feet to CM
@@ -245,11 +263,9 @@ Using the annoyingSong function below do the following:
 
 function annoyingSong(number){
   let text = ''
-  while (number > 0) {
     const leftOver = number - 1
-    text += `${number} bottles of soda on the wall, ${number} bottles of soda, take one down pass it around ${leftOver} bottles of soda on the wall`
+    text = `${number} bottles of soda on the wall, ${number} bottles of soda, take one down pass it around ${leftOver} bottles of soda on the wall`
     number = leftOver
-  }
   return text
 }
 console.log(annoyingSong(5))
@@ -273,7 +289,7 @@ Using the grade function below do the following:
 
 function grade(score){
  if (score >=  90 ) return 'you got an A'
- if (score >=  80 && score <= 89 ) return 'you got an b'
+ if (score >=  80 && score <= 89 ) return 'you got a B'
  if (score >=  70 && score <= 79 ) return 'you got a C'
  if (score >=  60 && score <= 69 ) return 'you got a D'
  if (score <=  59 ) return 'you got an F'
